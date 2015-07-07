@@ -4,3 +4,5 @@
 /.idea/libraries
 .DS_Store
 /build
+
+app/build/generated/source/r/debug/android/support/v7/appcompat/R.java
