@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import by.home.katushka.yogaapp.R;
@@ -19,6 +20,7 @@ public class LoginFragment extends Fragment {
 
     private EditText loginEt;
     private TextInputLayout label;
+    private Button signInButton;
 
     public static Fragment newInstance() {
         Fragment frg = new LoginFragment();
@@ -32,6 +34,8 @@ public class LoginFragment extends Fragment {
         label = (TextInputLayout) view.findViewById(R.id.user_name_label);
         loginEt = (EditText) label.findViewById(R.id.login_et);
         label.setHint(getString(R.string.enter_username));
+
+        signInButton = (Button)view.findViewById(R.id.sign_in_button);
 
         return view;
     }

@@ -7,4 +7,6 @@
     <string name="title_activity_api">ApiActivity</string>
 
     <string name="enter_username">Введите имя пользователя</string>
+    <string name="sign_in">Войти</string>
+
 </resources>
