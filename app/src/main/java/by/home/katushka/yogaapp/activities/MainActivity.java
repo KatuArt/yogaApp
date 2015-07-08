@@ -1,10 +1,12 @@
-package by.home.katushka.yogaapp;
+package by.home.katushka.yogaapp.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import by.home.katushka.yogaapp.R;
 
 
 public class MainActivity extends Activity {
