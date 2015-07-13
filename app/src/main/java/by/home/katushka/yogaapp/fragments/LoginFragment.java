@@ -11,11 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import by.home.katushka.yogaapp.R;
+import by.home.katushka.yogaapp.activities.MainActivity;
+import by.home.katushka.yogaapp.core.utils.NavigateUtils;
 
 /**
  * Created by Katushka on 08.07.2015.
  */
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment implements View.OnClickListener{
     public static final String TAG = LoginFragment.class.getSimpleName();
 
     private EditText loginEt;
@@ -36,7 +38,17 @@ public class LoginFragment extends Fragment {
         label.setHint(getString(R.string.enter_username));
 
         signInButton = (Button)view.findViewById(R.id.sign_in_button);
+        signInButton.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.sign_in_button:
+                NavigateUtils.changeActivity(getActivity(), MainActivity.class);
+                break;
+        }
     }
 }
