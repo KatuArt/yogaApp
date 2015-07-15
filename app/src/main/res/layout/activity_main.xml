@@ -13,12 +13,7 @@
         android:orientation="vertical">
 
         <!-- Toolbar instead of ActionBar so the drawer can slide on top -->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/abc_action_bar_default_height_material"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"/>
+        <include layout="@layout/toolbar" />
 
         <!-- The main content view -->
         <FrameLayout
@@ -33,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/drawer_bg"
+        android:background="@color/window_bg"
         app:headerLayout="@layout/drawer_header"
         app:itemIconTint="@color/drawer_item"
         app:itemTextColor="@color/drawer_item"

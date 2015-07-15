@@ -2,47 +2,35 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-
         <item
-            android:id="@+id/inbox"
+            android:id="@+id/asanas"
             android:checked="false"
             android:icon="@drawable/ic_inbox_black"
-            android:title="@string/inbox_string" />
+            android:title="@string/asanas" />
 
         <item
-            android:id="@+id/starred"
+            android:id="@+id/personal_programm"
             android:checked="false"
             android:icon="@drawable/ic_star_black"
-            android:title="@string/starred_string" />
+            android:title="@string/personal_programm" />
 
         <item
-            android:id="@+id/sent_mail"
+            android:id="@+id/user_info"
             android:checked="false"
             android:icon="@drawable/ic_send_black"
-            android:title="@string/sent_mail_string" />
+            android:title="@string/user_info"/>
 
         <item
-            android:id="@+id/drafts"
+            android:id="@+id/about"
             android:checked="false"
             android:icon="@drawable/ic_drafts_black"
-            android:title="@string/draft_string" />
+            android:title="@string/about" />
 
 
         <item
-            android:id="@+id/allmail"
+            android:id="@+id/additional_info"
             android:checked="false"
             android:icon="@drawable/ic_email_black"
-            android:title="@string/all_mail_string" />
-        <item
-            android:id="@+id/trash"
-            android:checked="false"
-            android:icon="@drawable/ic_delete_black"
-            android:title="@string/trash_string" />
-        <item
-            android:id="@+id/spam"
-            android:checked="false"
-            android:icon="@drawable/ic_error_black"
-            android:title="@string/spam_string" />
-
-    </group>
+            android:title="@string/additional_info" />
+          </group>
 </menu>

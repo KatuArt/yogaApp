@@ -7,7 +7,14 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="spinBars">true</item>
-        <item name="color">@android:color/white</item>
+        <item name="colorPrimaryDark">@color/main_color_dark</item>
+        <item name="android:windowBackground">@color/window_bg</item>
+<!--        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryDark">@color/main_color_dark</item>
+        <item name="colorAccent">@color/main_color</item>-->
+    </style>
 
+    <style name="DartText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/main_color_dark</item>
     </style>
 </resources>

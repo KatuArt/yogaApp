@@ -24,12 +24,9 @@
     <string name="closeDrawer">Navigation View</string>
     <string name="openDrawer">Navigation View Closed</string>
 
-    <array name="main_menu_array">
-        <item>Асаны</item>
-        <item>Личная программа</item>
-        <item>Данные пользователя</item>
-        <item>О приложении</item>
-        <item>Доп.инфо</item>
-    </array>
-
+    <string name="asanas">Асаны</string>
+    <string name="personal_programm">Личная программа</string>
+    <string name="user_info">Аккаунт</string>
+    <string name="about">О приложении</string>
+    <string name="additional_info">Доп.инфо</string>
 </resources>

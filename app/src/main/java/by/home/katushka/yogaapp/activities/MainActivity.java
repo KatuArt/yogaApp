@@ -12,12 +12,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import by.home.katushka.yogaapp.R;
 import by.home.katushka.yogaapp.core.base.ApiActivity;
 import by.home.katushka.yogaapp.core.utils.NavigateUtils;
-import by.home.katushka.yogaapp.fragments.UserInfoFragment;
+import by.home.katushka.yogaapp.fragments.AboutFragment;
+import by.home.katushka.yogaapp.fragments.ExerciseListFragment;
 
 
 public class MainActivity extends ApiActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,7 +28,6 @@ public class MainActivity extends ApiActivity implements NavigationView.OnNaviga
 
     private final Handler mDrawerActionHandler = new Handler();
     private int mNavItemId;
-    private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private Toolbar toolbar;
     private NavigationView navigationView;
@@ -55,7 +54,6 @@ public class MainActivity extends ApiActivity implements NavigationView.OnNaviga
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
-
                 //Checking if the item is in checked state or not, if not make it in checked state
                 if(menuItem.isChecked()) menuItem.setChecked(false);
                 else menuItem.setChecked(true);
@@ -65,42 +63,29 @@ public class MainActivity extends ApiActivity implements NavigationView.OnNaviga
 
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()){
-
-
                     //Replacing the main content with ContentFragment Which is our Inbox View;
-                    case R.id.inbox:
-                        Toast.makeText(getApplicationContext(), "Inbox Selected", Toast.LENGTH_SHORT).show();
-                        NavigateUtils.to(getSupportFragmentManager(), R.id.content, UserInfoFragment.newInstance(), UserInfoFragment.TAG);
+                    case R.id.asanas:
+                        NavigateUtils.to(getSupportFragmentManager(), R.id.content, ExerciseListFragment.newInstance(), ExerciseListFragment.TAG);
                         return true;
-                    case R.id.starred:
-                        Toast.makeText(getApplicationContext(),"Stared Selected",Toast.LENGTH_SHORT).show();
+                    case R.id.personal_programm:
                         return true;
-                    case R.id.sent_mail:
-                        Toast.makeText(getApplicationContext(),"Send Selected",Toast.LENGTH_SHORT).show();
+                    case R.id.user_info:
                         return true;
-                    case R.id.drafts:
-                        Toast.makeText(getApplicationContext(),"Drafts Selected",Toast.LENGTH_SHORT).show();
+                    case R.id.about:
+                        NavigateUtils.to(getSupportFragmentManager(), R.id.content, AboutFragment.newInstance(), AboutFragment.TAG);
                         return true;
-                    case R.id.allmail:
-                        Toast.makeText(getApplicationContext(),"All Mail Selected",Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.trash:
-                        Toast.makeText(getApplicationContext(),"Trash Selected",Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.spam:
-                        Toast.makeText(getApplicationContext(),"Spam Selected",Toast.LENGTH_SHORT).show();
+                    case R.id.additional_info:
                         return true;
                     default:
-                        Toast.makeText(getApplicationContext(),"Somethings Wrong",Toast.LENGTH_SHORT).show();
                         return true;
-
                 }
             }
         });
 
         // Initializing Drawer Layout and ActionBarToggle
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.openDrawer, R.string.closeDrawer){
+
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.openDrawer, R.string.closeDrawer){
 
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -135,7 +120,7 @@ public class MainActivity extends ApiActivity implements NavigationView.OnNaviga
 
         // allow some time after closing the drawer before performing real navigation
         // so the user can see what is happening
-        mDrawerLayout.closeDrawer(GravityCompat.START);
+        drawerLayout.closeDrawer(GravityCompat.START);
         mDrawerActionHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -153,21 +138,17 @@ public class MainActivity extends ApiActivity implements NavigationView.OnNaviga
     @Override
     public void onConfigurationChanged(final Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
-        if (item.getItemId() == android.support.v7.appcompat.R.id.home) {
-            return mDrawerToggle.onOptionsItemSelected(item);
-        }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            mDrawerLayout.closeDrawer(GravityCompat.START);
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
@@ -188,9 +169,21 @@ public class MainActivity extends ApiActivity implements NavigationView.OnNaviga
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
+    public void updateActionBar(boolean indicatorEnabled, boolean homeAsUpEnabled, String title) {
+        updateMenu(title);
+/*        getToggle().setDrawerIndicatorEnabled(indicatorEnabled);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(homeAsUpEnabled);*/
+    }
+
+    public void updateMenu(String title) {
+        clearMenu();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setTitle(title);
+    }
+
+    public void clearMenu() {
+    }
 }
